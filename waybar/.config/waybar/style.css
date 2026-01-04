@@ -11,7 +11,7 @@ window#waybar {
 	background: transparent;
 }
 
-#clock, #cpu, #bluetooth, #memory, pulseaudio, #network, #tray {
+#clock, #cpu, #bluetooth, #memory, pulseaudio, #network, #tray, #custom-update {
 	padding: 4 12px;
 	border-radius: 10px;
 	background-color: alpha(@background, 0.8);

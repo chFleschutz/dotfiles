@@ -102,11 +102,11 @@
             ],
         },
         "custom/update": {
-            "format": "󰅢 {}",
-            "interval": 30,   
+            "format": "󰅢   {}",
+            "interval": 60,   
             "exec": "checkupdates | wc -l",
             "exec-if": "exit 0",
-            "on-click": "alacritty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+            "on-click": "alacritty --class 'system_update' -e sh -c 'yay -Syu; pkill -SIGRTMIN+8 waybar'",
             "signal": 8,
             "tooltip": true,
             "tooltip-format": "Update system"
