@@ -3,7 +3,7 @@
 * {
 	border: none;
     font-family: "Symbols Nerd Font" ;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -11,15 +11,15 @@ window#waybar {
 	background: transparent;
 }
 
-#clock, #cpu, #bluetooth, #memory, pulseaudio, #network, #tray, #custom-update, #custom-power {
-	padding: 4 12px;
+#clock, #cpu, #bluetooth, #memory, #pulseaudio, #network, #tray, #custom-update, #custom-power, #workspaces {
+	padding: 4 16px;
 	border-radius: 10px;
-	background-color: alpha(@background, 0.8);
+	background-color: alpha(@background, 0.7);
 }
 
 #bluetooth {
 	color: #89b4fa;
-	font-size: 17px;
+	font-size: 16px;
 }
 
 #bluetooth.connected {
@@ -34,7 +34,37 @@ window#waybar {
 	font-size: 13px;
 }
 
+#workspaces {
+	padding: 4px 8px;
+}
+#workspaces button {
+	all:unset;
+	color: alpha(@color4, 0.6);
+	padding: 4px 16px;
+    transition: all 0.1s ease;
+}
+
+#workspaces button:hover {
+	color: alpha(@color4, 0.8);
+}
+
+#workspaces button.active {
+    color: @color4;
+}
+
+#workspaces button.empty {
+    color: alpha(@color4, 0.6);
+}
+
+#workspaces button.empty:hover {
+    color: alpha(@color4, 0.8);
+}
+
+#workspaces button.empty.active {
+    color: @color4;
+}
+
 #custom-power{
-	font-size: 16px;
-	padding-right: 6px;
+	font-size: 15px;
+	padding-right: 10px;
 }

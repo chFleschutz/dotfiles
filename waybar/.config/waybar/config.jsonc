@@ -1,10 +1,10 @@
 {
         "layer": "top",
         "position": "top",
-        "margin-top": 8,
-        "margin-right": 12,
+        "margin-top": 4,
+        "margin-right": 8,
         "margin-bottom": 0,
-        "margin-left": 12,
+        "margin-left": 8,
         "spacing": 4,
         "reload_style_on_change": true,
         "modules-left": ["cpu","memory","bluetooth","network","battery","tray"],
