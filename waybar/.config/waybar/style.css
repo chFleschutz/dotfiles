@@ -1,0 +1,25 @@
+* {
+    font-family: "Font Awesome 6 Free", "Ubuntu";
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(43, 48, 59, 0.5); /* Semi-transparent */
+    border-bottom: 2px solid rgba(100, 114, 125, 0.3);
+    color: #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock, #cpu, #memory, #network, #pulseaudio {
+    padding: 0 10px;
+    margin: 0 5px;
+}
