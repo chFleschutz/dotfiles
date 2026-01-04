@@ -116,7 +116,8 @@
             "format": "",
         },
 		"custom/power": {
-			"format": "",
-			"on-click": "bash ~/.config/rofi/leave/leave.sh",
+			"format": " ",
+			"tooltip": false,
+			"on-click": "~/.config/hypr/scripts/power_menu.sh",
 		}        
 } 
