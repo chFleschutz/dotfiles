@@ -1,19 +1,122 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "clock", "tray"],
+        "layer": "top",
+        "position": "top",
+        "margin-top": 8,
+        "margin-right": 12,
+        "margin-bottom": 0,
+        "margin-left": 12,
+        "spacing": 4,
+        "reload_style_on_change": true,
+        "modules-left": ["cpu","memory","bluetooth","network","battery","tray"],
+        "modules-center": ["hyprland/workspaces"],
+        "modules-right": ["custom/update","clock","custom/power"],
 
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate"
-    },
-    "clock": {
-        "format": "{:%H:%M}  ",
-        "format-alt": "{:%A, %B %d, %Y}  "
-    },
-    "cpu": { "format": "{usage}% " },
-    "memory": { "format": "{}% " }
-}
+        "cpu": {
+        	"interval": 15,
+            "format": "CPU {}%",
+            "max-length": 10,
+            "tooltip": true
+        },
+        "memory": {
+        	"interval": 30,
+            "format": "RAM {}%",
+            "max-length": 10
+        },
+        "bluetooth": {
+            "format": "",
+            "format-disabled": "󰂲", 
+            "format-connected": "󰂱", 
+            "format-connected-battery": "󰂱 {device_battery_percentage}%",
+            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+            "on-click": "blueman-manager",
+            "on-click-right": "rfkill toggle bluetooth" 
+        }, 
+        "network": {
+       		"tooltip": true,
+       		"format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+       		"format-wifi": "{icon}", 
+       		"format-ethernet": " ",
+            "format-disconnected": " ",
+            "tooltip-format": "Network: <span color='#cba6f7'>{ifname}</span>\nIP: <span color='#a6e3a1'>{ipaddr}</span>",
+			"tooltip-format-wifi": "SSID: <span color='#cba6f7'>{essid}</span>\nSignal: <span color='#f9e2af'>{signalStrength}%</span>\nInterface: {ifname}",
+		    "tooltip-format-ethernet": "Ethernet: <span color='#cba6f7'>{ifname}</span>\nIP: <span color='#a6e3a1'>{ipaddr}</span>",
+		    "tooltip-format-disconnected": "<span color='#f38ba8'>Offline</span>",
+            "on-click": "alacritty -e nmtui"
+       	},
+        "tray": {
+            "icon-size": 14,
+            "spacing": 10
+        },
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "active": "",
+                "default": "",
+                "empty": ""
+            },
+            "persistent-workspaces": {
+                "*": [ 1,2,3,4 ]
+            }
+        },
+        "custom/notification": {
+            "tooltip": false,
+            "format": "",
+            "on-click": "swaync-client -t -sw",
+            "escape": true
+        },
+        "clock": {
+            "format": "{:%T} ",
+            "interval": 1,   
+            "tooltip-format": "<tt>{calendar}</tt>",
+            "calendar": {
+                "format": {
+                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+                }
+            },
+            "actions": {
+                "on-click-right": "shift_down",
+                "on-click": "shift_up"
+            }
+        },
+        "battery": {
+            "interval":30,
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% 󰂄",
+            "format-plugged": "{capacity}% 󰂄 ",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "󰁻",
+	            "󰁼",
+	            "󰁾",
+	            "󰂀",
+	            "󰂂",
+	            "󰁹"
+            ],
+        },
+        "custom/update": {
+            "format": "󰅢 {}",
+            "interval": 30,   
+            "exec": "checkupdates | wc -l",
+            "exec-if": "exit 0",
+            "on-click": "alacritty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+            "signal": 8,
+            "tooltip": true,
+            "tooltip-format": "Update system"
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "",
+        },
+		"custom/power": {
+			"format": "",
+			"on-click": "bash ~/.config/rofi/leave/leave.sh",
+		}        
+} 

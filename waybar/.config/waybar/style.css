@@ -1,25 +1,35 @@
+@import "../../.cache/wal/colors-waybar.css";
+
 * {
-    font-family: "Font Awesome 6 Free", "Ubuntu";
-    font-size: 14px;
+	border: none;
+    font-family: "Symbols Nerd Font" ;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5); /* Semi-transparent */
-    border-bottom: 2px solid rgba(100, 114, 125, 0.3);
-    color: #ffffff;
+	background: transparent;
 }
 
-#workspaces button {
-    padding: 0 5px;
-    color: #ffffff;
+#clock, #cpu, #bluetooth, #memory, pulseaudio, #network, #tray {
+	padding: 4 12px;
+	border-radius: 10px;
+	background-color: alpha(@background, 0.8);
 }
 
-#workspaces button.active {
-    color: #64727D;
-    border-bottom: 3px solid #ffffff;
+#bluetooth {
+	color: #89b4fa;
+	font-size: 17px;
 }
 
-#clock, #cpu, #memory, #network, #pulseaudio {
-    padding: 0 10px;
-    margin: 0 5px;
+#bluetooth.connected {
+    color: #b4befe; 
+}
+
+#bluetooth.disabled {
+    color: #6c7086; 
+}
+
+#network{
+	font-size: 13px;
 }
