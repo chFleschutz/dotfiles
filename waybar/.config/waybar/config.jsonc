@@ -44,7 +44,7 @@
 			"tooltip-format-wifi": "SSID: <span color='#cba6f7'>{essid}</span>\nSignal: <span color='#f9e2af'>{signalStrength}%</span>\nInterface: {ifname}",
 		    "tooltip-format-ethernet": "Ethernet: <span color='#cba6f7'>{ifname}</span>\nIP: <span color='#a6e3a1'>{ipaddr}</span>",
 		    "tooltip-format-disconnected": "<span color='#f38ba8'>Offline</span>",
-            "on-click": "alacritty -e nmtui"
+            "on-click": "~/.config/hypr/scripts/toggle_net.sh"
        	},
         "tray": {
             "icon-size": 14,
