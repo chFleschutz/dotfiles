@@ -68,17 +68,25 @@
             "escape": true
         },
         "clock": {
-            "format": "{:%T} ",
-            "interval": 1,   
+            "format": "{:%H:%M   %d.%m.%Y}",
             "tooltip-format": "<tt>{calendar}</tt>",
             "calendar": {
+                "mode"          : "month",
+                "mode-mon-col"  : 3,
+                "weeks-pos"     : "right",
+                "on-scroll"     : 1,
                 "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+                    "months":     "<span color='#ffead3'><b>{}</b></span>",
+                    "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                    "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                    "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                    "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
                 }
             },
-            "actions": {
-                "on-click-right": "shift_down",
-                "on-click": "shift_up"
+            "actions":  {
+                "on-click-right": "mode",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
             }
         },
         "battery": {
