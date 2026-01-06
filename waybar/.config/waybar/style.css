@@ -1,5 +1,9 @@
 @import "../../.cache/wal/colors-waybar.css";
 
+@define-color accent @color4;
+@define-color active #ABE9B3;
+@define-color hover #F5C2E7;
+
 * {
 	border: none;
 	border-radius: 10px;
@@ -48,33 +52,34 @@ window#waybar {
 }
 
 #workspaces {
-	padding: 4px 8px;
+	padding: 0 12px;
 }
+
 #workspaces button {
-	all:unset;
-	color: alpha(@color4, 0.6);
-	padding: 4px 16px;
-    transition: all 0.1s ease;
+	/* color: alpha(@accent, 0.6); */
+	padding: 4px 14px;
+	margin: 0 2px;
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+
+	transition: all 0.1s ease;
+
+	background: transparent;
+	border-radius: 2px;
 }
 
 #workspaces button:hover {
-	color: alpha(@color4, 0.8);
+	color: @hover;
+	border-top-color: @hover;
 }
 
 #workspaces button.active {
-    color: @color4;
+	color: @active;
+	border-color: @active;
 }
 
-#workspaces button.empty {
-    color: alpha(@color4, 0.6);
-}
-
-#workspaces button.empty:hover {
-    color: alpha(@color4, 0.8);
-}
-
-#workspaces button.empty.active {
-    color: @color4;
+#workspaces button.active:hover {
+    color: @hover;
 }
 
 #custom-launcher{
