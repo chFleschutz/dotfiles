@@ -21,6 +21,7 @@
         ],
         "modules-right": [
             "custom/update",
+            "pulseaudio",
             "clock",
             "custom/power"
         ],
@@ -63,6 +64,17 @@
         "tray": {
             "icon-size": 14,
             "spacing": 10
+        },
+        "pulseaudio": {
+            "format": "{icon} {volume}%",
+            "format-muted": "  Muted",
+            "format-icons": {
+			    "default": [" ", " ", " "]
+            },
+            "scroll-step": 5,
+            "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+            "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+            "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
         },
         "hyprland/workspaces": {
             "format": "{icon}",
