@@ -2,19 +2,32 @@
 
 * {
 	border: none;
-    font-family: "Symbols Nerd Font" ;
+	border-radius: 10px;
+    font-family: "JetbrainsMono Nerd Font" ;
 	font-size: 14px;
-	font-weight: bold;
+	min-height: 10px;
 }
 
 window#waybar {
 	background: transparent;
 }
 
-#clock, #cpu, #bluetooth, #memory, #pulseaudio, #network, #tray, #custom-update, #custom-power, #workspaces {
+#bluetooth, 
+#clock, 
+#cpu, 
+#memory, 
+#network, 
+#pulseaudio, 
+#tray, 
+#workspaces, 
+#custom-launcher, 
+#custom-notification,
+#custom-power, 
+#custom-update
+{
 	padding: 4 16px;
 	border-radius: 10px;
-	background-color: alpha(@background, 0.7);
+	background-color: alpha(@background, 0.9);
 }
 
 #bluetooth {
@@ -64,7 +77,13 @@ window#waybar {
     color: @color4;
 }
 
+#custom-launcher{
+	font-size: 15px;
+	padding-right: 21px;
+}
+
 #custom-power{
 	font-size: 15px;
-	padding-right: 10px;
+	padding-right: 12px;
+	padding-top: 5px;
 }

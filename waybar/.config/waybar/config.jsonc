@@ -1,15 +1,29 @@
 {
         "layer": "top",
-        "position": "bottom",
-        "margin-top": 0,
+        "position": "tooltip",
+        "margin-top": 4,
         "margin-right": 8,
-        "margin-bottom": 4,
+        "margin-bottom": 0,
         "margin-left": 8,
         "spacing": 4,
         "reload_style_on_change": true,
-        "modules-left": ["cpu","memory","bluetooth","network","battery","tray"],
-        "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["custom/update","clock","custom/power"],
+        "modules-left": [
+            "custom/launcher",
+            "cpu",
+            "memory",
+            "bluetooth",
+            "network",
+            "battery",
+            "tray"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "custom/update",
+            "clock",
+            "custom/power"
+        ],
 
         "cpu": {
         	"interval": 15,
@@ -60,6 +74,13 @@
             "persistent-workspaces": {
                 "*": [ 1,2,3,4 ]
             }
+        },
+        "custom/launcher": {
+            "format": "",
+            "tooltip": false,
+            "on-click": "rofi -show drun",
+            "escape": true,
+            "on-click-right": "killall rofi"
         },
         "custom/notification": {
             "tooltip": false,
