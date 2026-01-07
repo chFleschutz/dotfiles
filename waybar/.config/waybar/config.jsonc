@@ -27,7 +27,7 @@
         ],
 
         "cpu": {
-        	"interval": 15,
+        	"interval": 10,
             "format": "CPU {}%",
             "max-length": 10,
             "tooltip": true
