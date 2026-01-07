@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Define the options
-options="   Power Off\n 󰜉  Reboot\n 󰤄  Suspend\n 󰗼  Log Out\n   Lock"
+options="    Shutdown\n 󰜉   Reboot\n 󰤄   Suspend\n 󰗼   Log Out\n    Lock"
 
 # Launch Rofi and capture the selection
-chosen=$(echo -e "$options" | rofi -dmenu -i -p "System Action" -theme-str 'window {width: 15%;}')
+choice=$(echo -e "$options" | walker -d -n -i)
 
-case $chosen in
-    "   Power Off") poweroff ;;
-    " 󰜉  Reboot") reboot ;;
-    " 󰤄  Suspend") systemctl suspend ;;
-    " 󰗼  Log Out") hyprctl dispatch exit ;;
-    "   Lock") hyprlock ;; # Or your preferred locker
+case $choice in
+    0) poweroff ;;
+    1) reboot ;;
+    2) systemctl suspend ;;
+    3) hyprctl dispatch exit ;;
+    4) hyprlock ;; 
 esac

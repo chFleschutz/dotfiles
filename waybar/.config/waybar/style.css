@@ -29,7 +29,7 @@ window#waybar {
 #custom-power, 
 #custom-update
 {
-	padding: 4 16px;
+	padding: 4px 16px;
 	border-radius: 10px;
 	background-color: alpha(@background, 0.9);
 }
